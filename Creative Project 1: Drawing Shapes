@@ -1,0 +1,98 @@
+// Julie Chen
+// 10.18.2022
+// CSE 121 Section BG
+// TA: Jaylyn Zhang
+// Creative Project 1: Drawing Shapes
+// This project will have a turtle draw a pentagon many times.
+
+import java.util.*;
+
+public class Shapes {
+    public static void main(String[] args) {
+
+        // Task 1: Draw a regular shape
+        Turtle wes = new Turtle();
+        int edges = 5;
+        for (int i = 1; i <= edges; i++) {
+            wes.forward(50);
+            wes.right(72);
+        }
+
+        //move to another location for Task 2
+        wes.up();
+        wes.forward(500);
+        wes.down();
+
+        // Task 2: Draw a regular shape many times
+        int pentagonAmount = 10;
+        for (int i = 1; i <= pentagonAmount; i++) {
+
+            //prints pentagons
+            for (int j = 1; j <= edges; j++) {
+                wes.forward(100);
+                wes.right(72);
+            }
+
+            //move EAST 300 pixels
+            wes.up();
+            wes.forward(300);
+            wes.down();
+        }
+
+        //move to another location for Extension A
+        wes.up();
+        wes.forward(500);
+        wes.down();
+
+        // Extension A: Random
+        Random r = new Random();
+        int randomSize = r.nextInt(100) + 1;
+
+            //prints multiple pentagons
+            for (int i = 1; i <= pentagonAmount; i++) {
+                randomSize = r.nextInt(100) + 1;
+
+                //randomly sized pentagons
+                for (int j = 1; j <= edges; j++) {
+                wes.forward(randomSize);
+                wes.right(72);
+            }
+            //move EAST 300 pixels
+            wes.up();
+            wes.forward(300);
+            wes.down();
+        }
+
+        //move to another location for Extension B
+        wes.up();
+        wes.forward(500);
+        wes.down();
+
+        // Extension B: Triple-Nested loop
+
+        //multiple differently sized pentagons inside each other w/ colors but total 10 separate
+        for (int i = 1; i <= pentagonAmount; i++) {
+
+            //Generates random integer that'll be used on line 79 and change colors if j is odd
+            for (int j = 1; j <= i; j++) {
+                if (j % 2 == 1) {
+                    wes.penColor("red");
+                }
+                if (j % 2 != 1) {
+                    wes.penColor("blue");
+                }
+                randomSize = r.nextInt(100) + 1;
+
+                //prints pentagons
+                for (int k = 1; k <= edges; k++) {
+                    wes.forward(randomSize);
+                    wes.right(72);
+                }
+            }
+            //move EAST 300 pixels
+            wes.up();
+            wes.forward(300);
+            wes.down();
+        }
+    }
+}
